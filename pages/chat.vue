@@ -86,7 +86,7 @@ onMounted(() => {
   <div class="relative">
     <img
       class="absolute bg-transparent opacity-60 z-0 -bottom-10 w-[300px]"
-      src="images/sally.png"
+      src="~assets/images/sally.png"
     />
     <div
       class="flex justify-center items-center fixed top-0 w-screen p-5 h-20 bg-orange text-white font-bold text-[24px]"

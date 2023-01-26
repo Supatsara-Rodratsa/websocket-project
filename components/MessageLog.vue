@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { sallyImage } from "~~/library/constants";
 import { UserInfo } from "~~/library/interfaces";
 import { userStore } from "~~/stores/users";
 
@@ -27,7 +28,7 @@ onMounted(() => {
       <div class="rounded-full overflow-hidden object-cover w-[40px] h-[40px]">
         <img
           class="object-cover"
-          :src="user.image ? user.image : 'images/sally-2.jpeg'"
+          :src="user.image ? user.image : sallyImage"
           width="40"
           height="40"
         />

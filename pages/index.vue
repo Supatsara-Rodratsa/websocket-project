@@ -26,7 +26,7 @@ function getProfileImage(profile: string) {
     <div class="absolute bottom-0 right-0 bg-transparent">
       <img
         class="bg-transparent"
-        src="images/sally-3.png"
+        src="~assets/images/sally-3.png"
         width="250"
         height="250"
       />

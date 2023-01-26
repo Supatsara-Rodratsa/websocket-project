@@ -1,4 +1,6 @@
 <script setup>
+import { sallyImage } from "~~/library/constants";
+
 const emit = defineEmits(["uploadedProfileImage"]);
 const url = ref("");
 function onClickedImage() {
@@ -33,7 +35,7 @@ function onFileSelected(event) {
   >
     <img
       class="object-cover"
-      :src="url ? url : 'images/sally-2.jpeg'"
+      :src="url ? url : sallyImage"
       @click="onClickedImage"
       width="200"
       height="200"
