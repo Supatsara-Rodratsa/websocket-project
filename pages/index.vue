@@ -22,18 +22,18 @@ function getProfileImage(profile: string) {
 }
 </script>
 <template>
-  <div>
+  <div class="relative">
+    <div class="absolute bottom-0 right-0 bg-transparent">
+      <img
+        class="bg-transparent"
+        src="images/sally-3.png"
+        width="250"
+        height="250"
+      />
+    </div>
     <div
-      class="flex flex-col justify-center items-center h-screen gap-5 bg-yellow relative"
+      class="flex flex-col justify-center items-center h-screen gap-5 relative bg-transparent"
     >
-      <div class="absolute bottom-0 right-0 bg-transparent">
-        <img
-          class="bg-transparent"
-          src="images/sally-3.png"
-          width="250"
-          height="250"
-        />
-      </div>
       <UploadProfile
         @uploadedProfileImage="getProfileImage($event)"
       ></UploadProfile>

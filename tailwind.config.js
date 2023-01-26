@@ -17,6 +17,7 @@ module.exports = {
       grey: "#757575",
       darkYellow: "#F2D450",
       transparent: "transparent",
+      cream: "#EEE3A9",
     },
     extend: {},
   },

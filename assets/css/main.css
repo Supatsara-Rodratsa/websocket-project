@@ -4,5 +4,8 @@
 
 * {
     box-sizing: border-box;
+}
+
+body, input {
     background-color: #F9F6D1;
 }

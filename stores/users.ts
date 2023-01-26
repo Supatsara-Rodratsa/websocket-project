@@ -13,5 +13,9 @@ export const userStore = defineStore("user", () => {
     userAccount.image = profile;
   }
 
-  return { userAccount, createUsername, createUserProfile };
+  function setUserId(userId: string) {
+    userAccount.id = userId;
+  }
+
+  return { userAccount, createUsername, createUserProfile, setUserId };
 });
