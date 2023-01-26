@@ -47,7 +47,7 @@ function onTyping() {
 }
 
 onMounted(() => {
-  socket = io(config.public.wssUrl);
+  socket = io("ws://websocket-project.vercel.app/");
   socket.emit("newUser", userAccount.value);
 
   socket.on("userId", (id) => {
