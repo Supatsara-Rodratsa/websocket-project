@@ -21,7 +21,7 @@ const typingUsers = computed(() => {
   if (props.typingLog && props.typingLog.length > 0) {
     if (props.typingLog.length == 1)
       return `${props.typingLog[0]} is typing...`;
-    else return `${props.typingLog.join()} are typing...`;
+    else return `${props.typingLog.join(", ")} are typing...`;
   }
   return null;
 });
@@ -38,12 +38,18 @@ const typingUsers = computed(() => {
           :user="chat.user"
           :message="chat.message"
           :time="chat.time"
+          :isTyping="false"
+          :type="chat.type"
           v-else
         ></MessageLog>
       </div>
-      <!-- <div class="absolute bottom-0" v-show="typingUsers">
-        <p>{{ typingUsers }}</p>
-      </div> -->
+      <div v-show="typingUsers">
+        <MessageLog
+          :message="typingUsers"
+          :isTyping="true"
+          type="MessageLog"
+        ></MessageLog>
+      </div>
     </div>
   </div>
 </template>

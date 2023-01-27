@@ -3,26 +3,15 @@ import { sallyImage } from "~~/library/constants";
 
 const emit = defineEmits(["uploadedProfileImage"]);
 const url = ref("");
+const { uploadImage, file } = useUtilities();
 function onClickedImage() {
   document.getElementById("fileUpload").click();
 }
 
 function onFileSelected(event) {
-  let byteArray;
-  const files = event.target.files;
-  if (files.length === 0) return;
-
-  const mimeType = files[0].type;
-  if (mimeType.match(/image\/*/) == null) {
-    this.message = "Only images are supported.";
-    console.log(this.message);
-    return;
-  }
-
+  uploadImage(event);
   const reader = new FileReader();
-  this.imagePath = files;
-
-  reader.readAsDataURL(files[0]);
+  reader.readAsDataURL(file.value);
   reader.onload = async (_event) => {
     url.value = reader.result;
     emit("uploadedProfileImage", url.value);
@@ -30,21 +19,28 @@ function onFileSelected(event) {
 }
 </script>
 <template>
-  <div
-    class="flex rounded-full overflow-hidden w-[200px] h-[200px] cursor-pointer"
-  >
-    <img
-      class="object-cover"
-      :src="url ? url : sallyImage"
-      @click="onClickedImage"
-      width="200"
-      height="200"
-    />
-    <input
-      type="file"
-      class="hidden"
-      @change="onFileSelected($event)"
-      id="fileUpload"
-    />
+  <div class="relative">
+    <div
+      class="flex rounded-full overflow-hidden w-[200px] h-[200px] cursor-pointer"
+    >
+      <img
+        class="object-cover"
+        :src="url ? url : sallyImage"
+        @click="onClickedImage"
+        width="200"
+        height="200"
+      />
+      <input
+        type="file"
+        class="hidden"
+        @change="onFileSelected($event)"
+        id="fileUpload"
+      />
+    </div>
+    <div
+      class="flex items-center justify-center absolute w-[40px] h-[40px] rounded-full bottom-[5px] right-[20px] z-50 bg-orange"
+    >
+      <img src="~assets/images/camera.png" width="20" height="20" />
+    </div>
   </div>
 </template>

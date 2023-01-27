@@ -18,6 +18,7 @@ module.exports = {
       darkYellow: "#F2D450",
       transparent: "transparent",
       cream: "#EEE3A9",
+      darkOrange: "#C04F34",
     },
     extend: {},
   },
